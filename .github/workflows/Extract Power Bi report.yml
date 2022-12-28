@@ -1,0 +1,13 @@
+name: Extract Power BI report
+
+on: [push]
+
+jobs:
+  extract-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract report
+        run: python extract_report.py
+      - name: Publish to Google Sites
+        run: python publish_to_google_sites.py
